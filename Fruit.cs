@@ -20,9 +20,7 @@ namespace ConsoleSnake
                 for (int i = 0; i < Snake.PartsX.Count; i++)
                 {
                     if ((X == Snake.PartsX[i]) && (Y == Snake.PartsY[i]))
-                    {
                         restart = true;
-                    }
                 }
             }
         }

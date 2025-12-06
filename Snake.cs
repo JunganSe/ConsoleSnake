@@ -30,31 +30,22 @@ namespace ConsoleSnake
         public static void HandleInput(Input input)
         {
             if ((input == Input.Up) && (Direction != Direction.Down))
-            {
                 Direction = Direction.Up;
-            }
             else if ((input == Input.Down) && (Direction != Direction.Up))
-            {
                 Direction = Direction.Down;
-            }
             else if ((input == Input.Left) && (Direction != Direction.Right))
-            {
                 Direction = Direction.Left;
-            }
             else if ((input == Input.Right) && (Direction != Direction.Left))
-            {
                 Direction = Direction.Right;
-            }
         }
 
         public static void Move()
         {
             int x = PartsX[0], y = PartsY[0];
-            if (((Direction == Direction.Up) && (CheckFree(x, y - 1)))
-                || ((Direction == Direction.Down) && (CheckFree(x, y + 1)))
-                || ((Direction == Direction.Left) && (CheckFree(x - 1, y)))
-                || ((Direction == Direction.Right) && (CheckFree(x + 1, y)))
-                )
+            if (((Direction == Direction.Up) && CheckFree(x, y - 1))
+                || ((Direction == Direction.Down) && CheckFree(x, y + 1))
+                || ((Direction == Direction.Left) && CheckFree(x - 1, y))
+                || ((Direction == Direction.Right) && CheckFree(x + 1, y)))
             {
                 // Body
                 for (int i = PartsX.Count - 1; i >= 1; i--)
@@ -91,9 +82,7 @@ namespace ConsoleSnake
             for (int i = 0; i < PartsX.Count; i++)
             {
                 if ((x == PartsX[i]) && (y == PartsY[i]))
-                {
                     return false;
-                }
             }
             return true;
         }
@@ -101,21 +90,13 @@ namespace ConsoleSnake
         public static void Wrap()
         {
             if (PartsX[0] < 0)
-            {
                 PartsX[0] += Game.levelWidth;
-            }
             else if (PartsX[0] >= Game.levelWidth)
-            {
                 PartsX[0] -= Game.levelWidth;
-            }
             else if (PartsY[0] < 0)
-            {
                 PartsY[0] += Game.levelHeight;
-            }
             else if (PartsY[0] >= Game.levelHeight)
-            {
                 PartsY[0] -= Game.levelHeight;
-            }
         }
         
         public static void CheckFruit()

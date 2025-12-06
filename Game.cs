@@ -28,7 +28,8 @@ namespace ConsoleSnake
                 Thread.Sleep(sleepDuration);
 
                 var input = GetInput();
-                if (input == Input.Quit) { break; }
+                if (input == Input.Quit)
+                    break;
 
                 Snake.HandleInput(input);
                 Snake.Move();
@@ -50,24 +51,24 @@ namespace ConsoleSnake
             {
                 switch (Console.ReadKey(true).Key)
                 {
-                case ConsoleKey.LeftArrow:
-                    input = Input.Left;
-                    break;
-                case ConsoleKey.RightArrow:
-                    input = Input.Right;
-                    break;
-                case ConsoleKey.UpArrow:
-                    input = Input.Up;
-                    break;
-                case ConsoleKey.DownArrow:
-                    input = Input.Down;
-                    break;
-                case ConsoleKey.Q:
-                    input = Input.Quit;
-                    break;
-                case ConsoleKey.Spacebar:
-                    input = Input.Pause;
-                    break;
+                    case ConsoleKey.LeftArrow:
+                        input = Input.Left;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        input = Input.Right;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        input = Input.Up;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        input = Input.Down;
+                        break;
+                    case ConsoleKey.Q:
+                        input = Input.Quit;
+                        break;
+                    case ConsoleKey.Spacebar:
+                        input = Input.Pause;
+                        break;
                 }
             }
             return input;

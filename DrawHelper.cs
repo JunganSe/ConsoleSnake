@@ -6,10 +6,14 @@ namespace ConsoleSnake
     {
         public static void DrawFrame(int x, int y, int width, int height, bool doubleWall = false)
         {
-            string parts = (doubleWall ? "═║╔╗╚╝" : "─│┌┐└┘"), horizontalLine = "";
+            string parts = doubleWall ? "═║╔╗╚╝" : "─│┌┐└┘";
+            string horizontalLine = "";
 
             // Horizontal line without corners.
-            for (int i = 0; i < width - 2; i++) { horizontalLine += parts[0]; }
+            for (int i = 0; i < width - 2; i++)
+            {
+                horizontalLine += parts[0];
+            }
 
             // Top part
             Console.SetCursorPosition(x, y);
@@ -31,7 +35,7 @@ namespace ConsoleSnake
 
         public static void FillArea(int x, int y, int width, int height, char character = ' ')
         {
-            string line = new String(character, width);
+            string line = new string(character, width);
             for (int i = 0; i < height; i++)
             {
                 Console.SetCursorPosition(x, y + i);
