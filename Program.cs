@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-namespace Snake
+﻿namespace ConsoleSnake
 {
     class Program
     {
